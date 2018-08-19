@@ -18,6 +18,7 @@ gem 'guard-cucumber'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'gritter'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
