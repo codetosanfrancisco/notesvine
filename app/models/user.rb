@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   validates_presence_of :firstname,:lastname
-  
+  has_many :notes
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          

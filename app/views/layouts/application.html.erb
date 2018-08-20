@@ -14,5 +14,6 @@
       <%= render "shared/navbar"%>
       <%= yield %>
     </div>
+    <%= js add_gritter(flash[:notice], :image => :notice, :title => "Noteapp", :sticky => true,:time => 2000) %>
   </body>
 </html>

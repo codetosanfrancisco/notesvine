@@ -18,6 +18,7 @@
 $white-color:#f7f7f7;
 $grey-color: #ededed;
 $blue-color:#2c91de;
+$black-color:#1c1d21;
 
 html,body{
     margin:0;
@@ -90,4 +91,7 @@ html,body{
 }
 #sidebar * {
     color:$white-color;
+}
+.light-background{
+    background-color: rgba(28,29,33,0.9);
 }

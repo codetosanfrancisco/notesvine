@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-md-3">
-        <div id="sidebar" align="center">
+        <div id="sidebar" align="center" style="<%= 'height:100vh' if current_user.notes.size < 12%>">
             <div class="border-bottom padding-bottom-md sidebar-block">
                 <div align="center">
                     <div class="border-box padding-top-sm">
-                        <%= image_tag gravatar_url("voonshunzhi@gmail.com", 80),class:"rounded-corner"%>
+                        <%= image_tag gravatar_url(current_user.email, 80),class:"rounded-corner"%>
                     </div>
                     <div class="border-box padding-top-sm">
                         <h6><%= current_user.full_name %></h6>
