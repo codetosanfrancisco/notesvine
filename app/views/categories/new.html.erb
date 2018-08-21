@@ -1,0 +1,13 @@
+<div class="col-md-6 offset-md-3 top-bottom-padding">
+    <h1>Create new category</h1>
+    <%= form_for @category,html:{class:"form-horizontal",role:"form"} do |f|%>
+        <div class="form-group">
+            <%= f.label :name,"New category's name :"%>
+            <%= f.text_field :name,class:"form-control"%>
+        </div>
+        <div class="form-group">
+            <%= f.submit "Create"%>
+        </div>
+    <% end %>
+</div>
+

@@ -19,6 +19,10 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'gritter'
 gem 'faker'
+gem "font-awesome-rails"
+gem 'faye'
+gem 'thin', require: false
+gem 'render_sync'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

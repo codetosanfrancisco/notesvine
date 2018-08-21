@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require gritter
  *= require_tree .
  *= require_self
@@ -25,6 +26,9 @@ html,body{
     padding:0;
     height:100%;
     background-color:$grey-color;
+}
+.font-size-sm{
+    font-size: 0.8em;
 }
 #sidebar{
     width: 300px;
@@ -84,14 +88,18 @@ html,body{
     padding-bottom: 30px;
 }
 .border-bottom{
-    border-bottom:0.5px solid $white-color;
+    border-bottom: 0.1px solid $white-color;
 }
 .sidebar-block{
     width:80%;
 }
-#sidebar * {
+.nav-brand,.nav-link,#sidebar * {
     color:$white-color;
 }
 .light-background{
     background-color: rgba(28,29,33,0.9);
+}
+.nav{
+    height:50px;
+    font-size: 1.4em;
 }

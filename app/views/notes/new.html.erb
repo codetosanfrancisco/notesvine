@@ -1,0 +1,10 @@
+<h1 class="top-bottom-padding"><%= @category_name%> <small>'s notes (<%= pluralize(current_category.notes.size,"note")%>)</small></h1>
+<%= link_to "Add remark","#"%>
+<%= link_to "Add description block","#"%>
+<%= link_to "Add code block","#"%>
+<%= form_for @note,html:{class:"form-horizontal"} do |f|%>
+    <div class="form-group">
+        <%= f.label :title%>
+        <%= f.text_field :title,class:"form-control"%>
+    </div>
+<% end %>

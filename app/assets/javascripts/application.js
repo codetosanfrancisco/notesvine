@@ -14,6 +14,14 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require sync
 //= require gritter
 //= require activestorage
 //= require_tree .
+
+$(document).ready(function(){
+    let sidebar = $('#sidebar')
+        if(sidebar.height() < window.screen.height){
+             sidebar.css('height','100vh')   
+        }
+})
