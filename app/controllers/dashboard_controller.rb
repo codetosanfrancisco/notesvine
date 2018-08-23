@@ -5,6 +5,10 @@ class DashboardController < ApplicationController
     @categories = current_user.categories
   end
   
+  def search
+    
+  end
+  
   protected 
   def category_notes(category)
     category.notes.order('created_at DESC').limit(9)
