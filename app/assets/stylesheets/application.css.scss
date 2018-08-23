@@ -12,6 +12,8 @@
  *
  *= require font-awesome
  *= require gritter
+ *= require owl.carousel
+ *= require owl.theme
  *= require_tree .
  *= require_self
  */
@@ -110,4 +112,46 @@ html,body{
 .nav{
     height:50px;
     font-size: 1.4em;
+}
+.font-size-sm{
+    font-size: 0.8em;
+}
+.font-size-lg{
+    font-size: 1.5em;
+}
+.font-family-menlo{
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.font-family-monsterrat{
+    font-family: 'Montserrat', sans-serif;
+}  
+#code{
+    padding: 20px 55px;
+    box-sizing: border-box;
+    background-color:#e1dbc7;
+    border-radius: 5px;
+    margin:10px;
+}
+#title{
+    padding: 20px 55px;
+    box-sizing: border-box;
+    background-color:#e1dbc7;
+    border-radius: 5px;
+    margin:10px;
+    font-size: 1.5em;
+}
+#description{
+    padding: 20px 55px;
+    box-sizing: border-box;
+    background-color:#e1dbc7;
+    border-radius: 5px;
+    margin: 10px;
+    height: 60vh;
+    overflow: auto;
+}
+.owl-carousel{
+    cursor: move;
+}
+.card{
+    height:200px;
 }

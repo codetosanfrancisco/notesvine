@@ -14,6 +14,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require owl.carousel
 //= require gritter
 //= require activestorage
 //= require_tree .

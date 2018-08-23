@@ -64,7 +64,7 @@ RSpec.feature "Notes", type: :feature do
         note = Note.create(title:"Hello",description:"Hello",code:"Hello",remark:"Hello",importance:0,category: @category)
         visit note_path(note)
         
-        expect(page).to have_content note.name
+        expect(page).to have_content note.title
         expect(page).to have_content note.code
       end
       
