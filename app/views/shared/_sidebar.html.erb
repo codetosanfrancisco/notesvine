@@ -15,9 +15,7 @@
                 <%= link_to "New category",new_category_path,class:"btn btn-success"%>
             </div>
             <div class="sidebar-block border-bottom padding-top-md padding-bottom-md">
-                <% @categories.each do |category|%>
-                   <%= sync partial:"category",resource: category%>   
-                <% end %>
+                <%= render @categories %>
             </div>
         </div>
     </div>

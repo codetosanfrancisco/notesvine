@@ -87,6 +87,14 @@ html,body{
 .padding-bottom-lg{
     padding-bottom: 30px;
 }
+.side-padding-sm{
+    padding-right:15px;
+    padding-left:15px;
+}
+.side-padding-xs{
+    padding-right:5px;
+    padding-left:5px;
+}
 .border-bottom{
     border-bottom: 0.1px solid $white-color;
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_113400) do
+ActiveRecord::Schema.define(version: 2018_08_23_050256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_113400) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "remark"
+    t.integer "importance"
     t.index ["category_id"], name: "index_notes_on_category_id"
   end
 

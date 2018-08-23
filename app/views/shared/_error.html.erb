@@ -1,0 +1,5 @@
+<% if record.errors.any?%>
+        <% record.errors.full_messages.each do |msg|%>
+            <%= js add_gritter(msg, :image => :warning, :title => "Danger!", :sticky => true) %>
+        <% end %>
+<% end %>

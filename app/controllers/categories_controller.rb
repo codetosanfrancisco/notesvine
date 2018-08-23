@@ -13,7 +13,6 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.user = current_user
     if @category.save
-      sync_new @category
       flash[:success] = "Category #{@category.name} is created!"
       redirect_to root_path
     else

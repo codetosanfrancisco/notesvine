@@ -1,10 +1,36 @@
 <h1 class="top-bottom-padding"><%= @category_name%> <small>'s notes (<%= pluralize(current_category.notes.size,"note")%>)</small></h1>
-<%= link_to "Add remark","#"%>
-<%= link_to "Add description block","#"%>
-<%= link_to "Add code block","#"%>
 <%= form_for @note,html:{class:"form-horizontal"} do |f|%>
+    <%= render partial:"shared/error",locals:{record: @note}%>
     <div class="form-group">
         <%= f.label :title%>
-        <%= f.text_field :title,class:"form-control"%>
+        <%= f.text_field :title,class:"form-control",placeholder:"Actioncable,ActiveStorage....."%>
+    </div>
+    <div class="form-group">
+        <%= f.label :importance,"This note is a "%>
+        <div>
+            <% @importances.each do |importance|%>
+                <%= f.radio_button :importance,importance[:id]%><%= importance[:name]%>
+            <% end %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :description,"Description (drag right bottom for more )"%>
+        <%= f.text_area :description,class:"form-control",rows:20,placeholder:"Actioncable is a....."%>
+    </div>
+    <div class="form-group">
+        <%= f.label :code,"Quality code (drag right bottom for more )"%>
+        <%= f.text_area :code,class:"form-control",rows:20,placeholder:"<div>..............."%>
+    </div>
+    <div class="form-group">
+        <%= f.label :remark%>
+        <%= f.text_area :remark,class:"form-control",rows:3,value:"No remark"%>
+    </div>
+    <div class="form-group">
+        <%= f.submit "Save notes",class:"btn btn-success"%>
     </div>
 <% end %>
+
+<script>
+	CKEDITOR.replace( 'note[code]' );
+	CKEDITOR.replace( 'note[description]' );
+</script>
