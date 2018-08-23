@@ -2,7 +2,8 @@
 	<div class="col-md-8">
 			<div class="page-header top-bottom-padding">
 				<h1>
-					<%= @category.name %> <small>For me,for everyone</small>
+					<span class="font-family-monsterra"><%= @category.name  %></span> 
+					<small>(<%= pluralize(@category.notes.size,'note')%>)</small>
 				</h1>
 			</div>
 		</div>
@@ -11,49 +12,18 @@
 		</div>
 </div>
 <div class="row">
-	<div class="col-md-4">
-		<div class="card">
-			<h5 class="card-header">
-				Card title
-			</h5>
-			<div class="card-body">
-				<p class="card-text">
-					Card content
-				</p>
-			</div>
-			<div class="card-footer">
-				Card footer
-			</div>
-		</div>
-	</div>
-	<div class="col-md-4">
-		<div class="card">
-			<h5 class="card-header">
-				Card title
-			</h5>
-			<div class="card-body">
-				<p class="card-text">
-					Card content
-				</p>
-			</div>
-			<div class="card-footer">
-				Card footer
+	<% @category.notes.each do |note|%>
+		<div class="col-md-4 padding-bottom-sm">
+			<div class="card">
+				<h6 class="card-header">
+					<%= link_to note.title,note_path(note)%>
+				</h6>
+				<div class="card-body">
+					<p class="card-text">
+						<%= truncate(note.description.html_safe,length:50)%>
+					</p>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-4">
-		<div class="card">
-			<h5 class="card-header">
-				Card title
-			</h5>
-			<div class="card-body">
-				<p class="card-text">
-					Card content
-				</p>
-			</div>
-			<div class="card-footer">
-				Card footer
-			</div>
-		</div>
-	</div>
+<% end %>
 </div>

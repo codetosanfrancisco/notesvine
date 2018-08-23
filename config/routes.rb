@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :notes
   root "dashboard#user"
+  post "dashboard/search",as: :search_dashboard
 end

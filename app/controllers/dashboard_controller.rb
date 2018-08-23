@@ -7,6 +7,6 @@ class DashboardController < ApplicationController
   
   protected 
   def category_notes(category)
-    category.notes
+    category.notes.order('created_at DESC').limit(9)
   end
 end

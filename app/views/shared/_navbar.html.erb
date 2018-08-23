@@ -2,13 +2,21 @@
 	<div class="col-md-12 no-right-padding">
 		<ul class="nav">
 			<li class="nav-item">
-				<%= link_to "Noteapp",root_path,class:"nav-link nav-brand"%>
+				<%= link_to "Notesvine",root_path,class:"nav-link nav-brand font-family-banger font-family-banger-spacing-lg"%>
 			</li>
 			<li class="nav-item dropdown ml-md-auto">
-				 <a class="nav-link dropdown-toggle font-size-sm" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Setting</a>
-				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-					 <%= link_to "Log out", destroy_user_session_path,method: :delete,class:"dropdown-item"%>
-				</div>
+				<% if user_signed_in?%>
+						 <a class="nav-link dropdown-toggle font-size-sm font-family-banger font-family-banger-spacing-md" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Option</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+							 <%= link_to "Log out", destroy_user_session_path,method: :delete,class:"dropdown-item"%>
+						</div>
+					</li>
+				<%else%>
+					<% link = link_to "Sign up",new_user_registration_path,class:"nav-link nav-brand font-family-monsterrat"%>
+					<% link = link_to "Log in",new_user_session_path,class:"nav-link nav-brand font-family-monsterrat" if current_page?(new_user_registration_path) %>
+					<%= link %>
+					
+				<% end %>
 			</li>
 		</ul>
 	</div>
