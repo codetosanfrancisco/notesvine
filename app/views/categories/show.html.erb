@@ -8,22 +8,8 @@
 			</div>
 		</div>
 		<div class="col-md-4 flex-display">
-			<%= link_to "New notes",new_note_path,class:"btn btn-primary"%>
+			<%= link_to "New notes",new_note_path,class:"btn btn-warning"%>
 		</div>
 </div>
-<div class="row">
-	<% @category.notes.each do |note|%>
-		<div class="col-md-4 padding-bottom-sm">
-			<div class="card">
-				<h6 class="card-header">
-					<%= link_to note.title,note_path(note)%>
-				</h6>
-				<div class="card-body">
-					<p class="card-text">
-						<%= truncate(note.description.html_safe,length:50)%>
-					</p>
-				</div>
-			</div>
-		</div>
-<% end %>
-</div>
+<%= render "shared/search" %>
+<%= render "shared/notes" %>

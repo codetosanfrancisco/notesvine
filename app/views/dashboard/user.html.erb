@@ -7,53 +7,9 @@
 		</div>
 	</div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <%= form_tag [:search,:dashboard] do%>
-          <%= text_field_tag :search,nil,placeholder:"Search"%>
-          <%= submit_tag "Search",class:"btn btn-primary"%>
-        <% end %>
-    </div>
-</div>
+<%= render "shared/search"%>
+<%= render "shared/notes" %>
 
-<% @categories.each do |category|%>
-  <div class="root-category">
-    <div class="font-family-monsterrat font-size-lg"><%= link_to(category.name.titlecase,category_path(category),class:"white-color")%></div>
-      <% if category_notes(category).any? %>
-          <div class="owl-carousel owl-theme">
-            <% category_notes(category).each do |note|%>
-              <div class="item">
-                <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title"><%= link_to(note.title,note_path(note)) %></h5>
-                        <p class="card-text"><%= truncate(note.description.html_safe,length:50)%></p>
-                      </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-      <% else %>
-          <div class="category-card white-color">No notes for this category yet.</div>
-      <% end %>
-  </div>
-<% end %>
-
-<script>
-  $('.owl-carousel').owlCarousel({
-    margin:20,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:2
-        },
-        1000:{
-            items:3
-        }
-    }
-})
-</script>
 
 
     

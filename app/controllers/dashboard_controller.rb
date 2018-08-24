@@ -1,16 +1,13 @@
 class DashboardController < ApplicationController
-  helper_method :category_notes
   
   def user
     @categories = current_user.categories
+    @notes = Note.where(category: @categories).order_paginate(params[:page],10)
   end
   
   def search
-    
+    @search = params[:search]
+    @notes = Note.search(@search).order_paginate(params[:page],10)
   end
   
-  protected 
-  def category_notes(category)
-    category.notes.order('created_at DESC').limit(9)
-  end
 end

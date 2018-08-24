@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-md-8">
+		<div class="page-header top-bottom-padding">
+			<h1>
+				<span class="font-family-banger font-family-banger-spacing-lg">Search result for "<%= @search%>"</span>
+			</h1>
+		</div>
+	</div>
+</div>
+<%= render "shared/search" %>
+<% if @notes.size > 0 %>
+    <%= render "shared/notes"%>
+<% else %>
+    <%= content_tag "h4","No result found."%>
+<% end %>

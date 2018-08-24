@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-12">
+        <%= form_tag [:search,:dashboard],style:"box-sizing: border-box;padding-left:5px;padding-bottom:10px",method: :get do%>
+            <div class="row flex-display flex-display-space-around">
+                  <% search = nil %>
+                  <% search = @search if @search%>
+                  <%= text_field_tag :search,search,placeholder:"Search for notes here....",class:"form-search"%>
+                  <button type="submit" class="btn btn-warning"><%= fa_icon "search" %></button>
+            </div>
+        <% end %>
+    </div>
+</div>

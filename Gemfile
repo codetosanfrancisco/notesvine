@@ -20,7 +20,8 @@ gem 'jquery-rails'
 gem 'gritter'
 gem 'faker'
 gem "font-awesome-rails"
-gem 'owlcarousel-rails'
+gem 'will_paginate'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

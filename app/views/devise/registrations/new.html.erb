@@ -1,11 +1,10 @@
 <% content_for :bg  do %>
+  <%= render partial:"shared/error",locals:{ record: @user} %>
   <div class="col-md-4 offset-md-4 padding-top-md">
     <div class="bg-grey" id="signup-card">
-      <h2>Sign up</h2>
-  
+      <h2 class="font-family-banger">Sign up</h2>
+      
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html:{role:"form",class:"form-horizontal"}) do |f| %>
-        <%= devise_error_messages! %>
-        
         <div class="form-group">
           <%= f.label :firstname,"First name" %><br />
           <%= f.text_field :firstname, autofocus: true,class:"form-control" %>

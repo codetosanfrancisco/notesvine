@@ -12,8 +12,6 @@
  *
  *= require font-awesome
  *= require gritter
- *= require owl.carousel
- *= require owl.theme
  *= require_tree .
  *= require_self
  */
@@ -45,7 +43,6 @@ html,body{
 }
 .top-bottom-padding{
     padding-top: 20px;
-    padding-bottom: 40px;
 }
 .flex-display{
     display: flex;
@@ -157,12 +154,6 @@ html,body{
     height: 60vh;
     overflow: auto;
 }
-.owl-carousel{
-    cursor: move;
-}
-.card,.category-card{
-    height:300px;
-}
 .font-family-banger{
     font-family: 'Bangers', cursive;
 }
@@ -176,10 +167,10 @@ a {
 #bg{
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.35)),url('bg.jpg') no-repeat fixed center;
+    background: url('bg.jpg') no-repeat fixed center;
     background-size: cover;
 }
-#signin-card,#signup-card{
+#signin-card,#signup-card,#edit-card{
     padding: 20px;
     box-sizing: border-box;
 }
@@ -194,4 +185,67 @@ a {
 
 .font-family-banger-spacing-md{
     letter-spacing: 2px;
+}
+
+.no-left-margin{
+    margin-left: 0;
+}
+
+.root-card{
+    background-color: $white-color;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    height: 150px;
+}
+
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  
+ .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+    
+.apple_pagination .disabled {
+    color: #aaaaaa; }
+    
+.apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+    
+.apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    
+.apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; 
+    
+}
+
+.form-search{
+    width: 95%;
+    height: 50px;
+    border: 0;
+    border-bottom : 0.5px solid $black-color;
+    background-color: transparent;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    padding: 5px 10px;
+}
+
+.flex-display-space-around{
+    justify-content: space-around;
 }

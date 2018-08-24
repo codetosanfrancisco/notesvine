@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
-    @notes = @category.notes
+    @notes = @category.notes.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     session[:category_id] = @category.id
   end
   
