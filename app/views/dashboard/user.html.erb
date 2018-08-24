@@ -8,11 +8,7 @@
 	</div>
 </div>
 <%= render "shared/search"%>
-<% if current_user.categories.size > 0%>
-	<%= render "shared/notes" %>
-<% else %>
-	<h4>Starting creating notes today! Click on New category on the sidebar to start! </h4>
-<% end %>
+<%= render partial:"shared/got_notes",locals:{collections: current_user.categories, new:"Category"}%>
 
 
 
