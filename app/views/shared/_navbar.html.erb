@@ -13,7 +13,7 @@
 					</li>
 				<%else%>
 					<% link = link_to "Sign up",new_user_registration_path,class:"nav-link nav-brand font-family-banger"%>
-					<% link = link_to "Log in",new_user_session_path,class:"nav-link nav-brand font-family-banger" if current_page?(new_user_registration_path) %>
+					<% link = link_to "Log in",new_user_session_path,class:"nav-link nav-brand font-family-banger" if params[:controller] == 'users' %>
 					<%= link %>
 					
 				<% end %>
