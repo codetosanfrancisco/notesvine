@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :add_importances,only:[:new,:create,:edit]
-  before_action :find_note,only:[:show,:edit,:update]
+  before_action :find_note,only:[:show,:edit,:update,:destroy]
   
   def new
     @note = Note.new
@@ -34,8 +34,19 @@ class NotesController < ApplicationController
     else
       render "edit"
     end
-    
   end
+  
+  def destroy
+    title = @note.title
+    category = @note.category
+    if @note.destroy
+      flash[:success] = "#{title} is successfully removed!"
+      redirect_to category_path(category)
+    else
+      redirect_back(fallback_location: category_path(category))
+    end
+  end
+  
   private
   def note_params
     params.require(:note).permit(:title,:description,:code,:remark,:importance)

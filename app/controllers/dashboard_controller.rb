@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
   
   def search
     @search = params[:search]
-    @notes = Note.search(@search).order_paginate(params[:page],10)
+    @notes = Note.search(@search).order(:category_id).order_paginate(params[:page],10)
   end
   
 end

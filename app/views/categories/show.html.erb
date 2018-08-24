@@ -2,7 +2,7 @@
 	<div class="col-md-8">
 			<div class="page-header top-bottom-padding">
 				<h1>
-					<span class="font-family-monsterra"><%= @category.name  %></span> 
+					<span class="font-family-banger"><%= @category.name  %></span> 
 					<small>(<%= pluralize(@category.notes.size,'note')%>)</small>
 				</h1>
 			</div>
@@ -12,4 +12,4 @@
 		</div>
 </div>
 <%= render "shared/search" %>
-<%= render "shared/notes" %>
+<%= render partial:"shared/got_notes",locals:{collections: @category.notes, new:"Notes"}%>
