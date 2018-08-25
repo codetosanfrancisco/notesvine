@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :find_category,only:[:edit,:show,:update]
-  
+  before_action :authorize_category,only:[:show,:edit,:update,:destroy]
+
   def show
     @category = Category.find(params[:id])
     @notes = @category.notes.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
@@ -43,4 +44,9 @@ class CategoriesController < ApplicationController
   def find_category
     @category = Category.find(params[:id])
   end
+  
+  def authorize_category
+    authorize @category
+  end
+
 end

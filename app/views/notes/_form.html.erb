@@ -1,5 +1,5 @@
 <div class="bg-grey" id="new-note">
-    <h1 class="font-family-banger"><%= @category_name%> <small>'s notes (<%= pluralize(current_category.notes.size,"note")%>)</small></h1>
+    <h2 class="font-family-banger"><%= @note.new_record? ? "New notes" : "Update Notes"%></h2>
     <%= form_for @note,html:{class:"form-horizontal"} do |f|%>
         <%= render partial:"shared/error",locals:{record: @note}%>
         <div class="form-group">
@@ -16,6 +16,18 @@
                 <% end %>
             </div>
         </div>
+        <% unless params[:action] == 'edit'%>
+            <div class="form-group">
+                <%= f.label :category%>
+                <div>
+                    <select name="note[category]" class="selectpicker" data-width="150px" multiple title="Choose a category" >
+        		    	<% @moves.each do |c| %>
+    				  		<option value="<%= c.id %>"><%= c.name %></option>
+    				  	<% end %>
+    				</select>
+                </div>
+            </div>
+        <% end %>
         <div class="form-group">
             <%= f.label :description,"Description (drag right bottom for more )"%>
             <%= f.text_area :description,class:"form-control",rows:20,placeholder:"Actioncable is a....."%>

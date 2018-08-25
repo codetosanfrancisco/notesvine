@@ -1,14 +1,16 @@
 class NotesController < ApplicationController
   before_action :add_importances,only:[:new,:create,:edit]
-  before_action :find_note,only:[:show,:edit,:update,:destroy]
+  before_action :find_note,only:[:show,:edit,:update,:destroy,:move]
+  before_action :authorize_note,only:[:show,:edit,:update,:destroy]
+  before_action :find_categories,only:[:new,:create]
   
   def new
     @note = Note.new
   end
   
   def create
-    @note = Note.new(create_note(note_params[:importance].to_i))
-    @note.category = current_category
+    @moves = current_user_category
+    @note = Note.new(create_note(note_params[:importance],note_params[:category]))
     if @note.save
       flash[:success] = "The notes #{@note.title} is created!"
       redirect_to note_path(@note)
@@ -19,7 +21,7 @@ class NotesController < ApplicationController
   end
   
   def show
-    
+    @moves = current_user_category.reject{|c| c == @note.category}
   end
   
   def edit
@@ -28,7 +30,7 @@ class NotesController < ApplicationController
   
   def update
     importance = Note.importances[note_params[:importance]]
-    if @note.update(create_note(importance))
+    if @note.update(update_note(importance))
       flash[:success] = "The notes #{@note.title} is updated!"
       redirect_to note_path(@note)
     else
@@ -47,13 +49,23 @@ class NotesController < ApplicationController
     end
   end
   
+  def move
+    category= Category.find(params[:category].to_i)
+    if @note.update(category: category)
+      flash[:success] = "Note is moved to category #{category.name}"
+      redirect_back(fallback_location: category_path(category))
+    else
+      flash[:danger] = "Can't move note to category #{category.name}"
+      redirect_back(fallback_location: category_path(category))
+    end
+  end
+  
   private
   def note_params
-    params.require(:note).permit(:title,:description,:code,:remark,:importance)
+    params.require(:note).permit(:title,:description,:code,:remark,:importance,:category)
   end
   
   def add_importances
-       @category_name = current_category.name
        @importances = [{id:0,name:"reference"},{id:1,name:"cheatsheet"}]
   end
   
@@ -61,7 +73,23 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
   end
   
-  def create_note(value)
-    note_params.merge({importance: value})
+  def create_note(im,ca)
+    note_params.merge({importance: im.to_i,category: Category.find(ca.to_i)})
+  end
+  
+  def update_note(im)
+    note_params.merge({importance: im.to_i})
+  end
+  
+  def authorize_note
+    authorize @note
+  end
+  
+  def current_user_category
+    current_user.categories
+  end
+  
+  def find_categories
+    @moves = current_user_category
   end
 end
