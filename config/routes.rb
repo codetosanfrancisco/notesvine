@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     end
   end
   root "dashboard#user"
-  get "dashboard/search",as: :search_dashboard
+  get "dashboard/search"
+  get "dashboard/notesvine"
 end

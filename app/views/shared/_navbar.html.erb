@@ -4,6 +4,11 @@
 			<li class="nav-item">
 				<%= link_to "Notesvine",root_path,class:"nav-link nav-brand font-family-banger font-family-banger-spacing-lg"%>
 			</li>
+			<% unless user_signed_in? %>
+				<li class="nav-item">
+					<%= link_to "What is Notesvine",dashboard_notesvine_path,class:"nav-link nav-brand font-family-banger font-family-banger-spacing-md"%>
+				</li>
+			<% end %>
 			<li class="nav-item dropdown ml-md-auto">
 				<% if user_signed_in?%>
 						 <a class="nav-link dropdown-toggle font-size-sm font-family-banger font-family-banger-spacing-md" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Option</a>

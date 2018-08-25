@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  skip_before_action :authenticate_user!,only:[:notesvine]
   
   def user
     @categories = current_user.categories
@@ -10,4 +11,6 @@ class DashboardController < ApplicationController
     @notes = Note.search(@search).order(:category_id).order_paginate(params[:page],10)
   end
   
+  def notesvine
+  end
 end
