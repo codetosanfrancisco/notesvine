@@ -4,7 +4,7 @@
             <div class="row flex-display flex-display-space-around">
                   <% search = nil %>
                   <% search = @search if @search%>
-                  <%= text_field_tag :search,search,placeholder:"Search for notes here....",class:"form-search"%>
+                  <%= text_field_tag :search,search,placeholder:"Search for notes ....",class:"form-search"%>
                   <button type="submit" class="btn btn-warning"><%= fa_icon "search" %></button>
             </div>
         <% end %>
