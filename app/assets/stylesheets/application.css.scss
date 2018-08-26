@@ -125,14 +125,21 @@ html,body{
 #code{
     padding: 20px 55px;
     box-sizing: border-box;
-    background-color:#e1dbc7;
+    background-color:#fff;
+    border-radius: 5px;
+    margin:10px;
+}
+#remark{
+    padding: 20px 55px;
+    box-sizing: border-box;
+    background-color:#fff;
     border-radius: 5px;
     margin:10px;
 }
 #title{
     padding: 20px 55px;
     box-sizing: border-box;
-    background-color:#e1dbc7;
+    background-color:#fff;
     border-radius: 5px;
     margin:10px;
     font-size: 1.5em;
@@ -148,7 +155,7 @@ html,body{
 #description{
     padding: 20px 55px;
     box-sizing: border-box;
-    background-color:#e1dbc7;
+    background-color:#fff;
     border-radius: 5px;
     margin: 10px;
     height: 60vh;

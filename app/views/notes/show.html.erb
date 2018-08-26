@@ -26,9 +26,14 @@
 		</div>
 		<div id="code">
 		    <h5><%= @note.importance.titlecase %> code:</h5>
-		<div class="font-size-sm font-family-menlo">
-			<%= @note.code.html_safe %>
+			<div class="font-size-sm font-family-menlo">
+				<%= @note.code.html_safe %>
+			</div>
 		</div>
+		
+		<div id="remark">
+			<h5>Remark</h5>
+			<%= @note.remark %>
 		</div>
 	</div>
 </div>
