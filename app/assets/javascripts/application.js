@@ -20,7 +20,7 @@
 
 $(document).ready(function(){
     let sidebar = $('#sidebar')
-        if(sidebar.height() < window.screen.height){
+        if(document.documentElement.height() < window.screen.height){
              sidebar.css('height','100vh')   
         }
 })
