@@ -3,8 +3,8 @@
   		<h3>
   			<%= link_to note.title,note_path(note) %> <span class="badge badge-warning font-size-xs"><%= note.category.name %></span>
   		</h3>
-  		<p>
+  		<div>
   			<%= truncate(note.description,length: 150,:escape => false)%>
-  		</p>
+  		</div>
   	</div>
   </div>
