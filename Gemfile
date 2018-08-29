@@ -22,6 +22,7 @@ gem 'faker'
 gem "font-awesome-rails"
 gem 'will_paginate'
 gem 'pundit'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
